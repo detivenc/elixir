@@ -1,5 +1,5 @@
 <p align="center">
-  <h3 align="center">Kotlin Projects that I build on with videos and my own</h3>
+  <h3 align="center">Elixir Projects that I build on with videos and my own</h3>
 </p>
 
 ## License
