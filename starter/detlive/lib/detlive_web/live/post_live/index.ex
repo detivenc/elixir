@@ -10,7 +10,7 @@ defmodule DetliveWeb.PostLive.Index do
       <.header>
         Timeline
         <:actions>
-          <.button variant="primary" navigate={~p"/posts/new"}>
+          <.button variant="primary" navigate={~p"/new"}>
             <.icon name="hero-plus" /> New Post
           </.button>
         </:actions>
@@ -19,7 +19,7 @@ defmodule DetliveWeb.PostLive.Index do
       <.table
         id="posts"
         rows={@streams.posts}
-        row_click={fn {_id, post} -> JS.navigate(~p"/posts/#{post}") end}
+        row_click={fn {_id, post} -> JS.navigate(~p"/#{post}") end}
       >
         <:col :let={{_id, post}} label="Username">{post.username}</:col>
         <:col :let={{_id, post}} label="Body">{post.body}</:col>
@@ -27,9 +27,9 @@ defmodule DetliveWeb.PostLive.Index do
         <:col :let={{_id, post}} label="Reposts count">{post.reposts_count}</:col>
         <:action :let={{_id, post}}>
           <div class="sr-only">
-            <.link navigate={~p"/posts/#{post}"}>Show</.link>
+            <.link navigate={~p"/#{post}"}>Show</.link>
           </div>
-          <.link navigate={~p"/posts/#{post}/edit"}>Edit</.link>
+          <.link navigate={~p"/#{post}/edit"}>Edit</.link>
         </:action>
         <:action :let={{id, post}}>
           <.link

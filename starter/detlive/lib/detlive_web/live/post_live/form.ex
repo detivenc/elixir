@@ -36,12 +36,20 @@ defmodule DetliveWeb.PostLive.Form do
   defp return_to(_), do: "index"
 
   defp apply_action(socket, :edit, %{"id" => id}) do
-    post = Timeline.get_post!(id)
+    case Integer.parse(id) do
+      {id_int, ""} ->
+        post = Timeline.get_post!(id_int)
 
-    socket
-    |> assign(:page_title, "Edit Post")
-    |> assign(:post, post)
-    |> assign(:form, to_form(Timeline.change_post(post)))
+        socket
+        |> assign(:page_title, "Edit Post")
+        |> assign(:post, post)
+        |> assign(:form, to_form(Timeline.change_post(post)))
+
+      _ ->
+        socket
+        |> put_flash(:error, "Invalid post ID")
+        |> push_navigate(to: ~p"/")
+    end
   end
 
   defp apply_action(socket, :new, _params) do
@@ -89,6 +97,6 @@ defmodule DetliveWeb.PostLive.Form do
     end
   end
 
-  defp return_path("index", _post), do: ~p"/posts"
-  defp return_path("show", post), do: ~p"/posts/#{post}"
+  defp return_path("index", _post), do: ~p"/"
+  defp return_path("show", post), do: ~p"/#{post}"
 end
