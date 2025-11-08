@@ -1,5 +1,6 @@
 defmodule ShopWeb.Router do
   use ShopWeb, :router
+  alias ShopWeb.Plugs
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,6 +9,7 @@ defmodule ShopWeb.Router do
     plug :put_root_layout, html: {ShopWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug Plugs.SetConsole, "pc"
   end
 
   pipeline :api do
@@ -18,6 +20,9 @@ defmodule ShopWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/products", ProductController, :index
+    get "/products/no-layout", ProductController, :index_no_layout
+    get "/products/:id", ProductController, :show
   end
 
   # Other scopes may use custom stacks.

@@ -50,5 +50,26 @@ defmodule ShopWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+  # So this is a plug on a function the : indicates the function and after , is the opts
+  # Allways remember that is the plug implicates before the router or session or other plugs need to be above it
+  # Because plugs are executed in order
+  plug :check_promo_code, "Hello there!"
   plug ShopWeb.Router
+
+
+  # This is a plug function that checks for a promo code in the params
+  # If the promo code matches "secret-code", it assigns :promo to true in the conn
+  # Otherwise, it assigns :promo to false
+  def check_promo_code(%Plug.Conn{:params => %{"promo" => promo_code}} = conn, opts) when promo_code == "secret-code" do
+    # Only for debugging purposes
+    IO.inspect(opts)
+    # Assign :promo to true in the conn on phoenix 1.8 you need to use Plug.Conn.assign/3
+    conn |> Plug.Conn.assign(:promo, true)
+  end
+
+  # This clause handles the case where the promo code does not match or is absent
+  def check_promo_code(%Plug.Conn{} = conn, opts) do
+    IO.inspect(opts)
+    conn |> Plug.Conn.assign(:promo, false)
+  end
 end
