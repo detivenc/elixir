@@ -4,6 +4,8 @@
 
 <hr class="my-10" />
 
+<a href={~p"/products"} class="text-blue-500 underline">Browse Products</a>
+
 <p>Select your favorite video console:</p>
 
 <form>
@@ -19,3 +21,6 @@
 </form>
 
 <p class="mt-8">Selected console: <%= @console %></p>
+
+
+<p :if={@promo}>Promo active!</p>

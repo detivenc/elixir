@@ -16,13 +16,31 @@ defmodule ShopWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug Plugs.EnsureAuthenticated
+  end
+
   scope "/", ShopWeb do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/products", ProductController, :index
+    # get "/products", ProductController, :index
     get "/products/no-layout", ProductController, :index_no_layout
-    get "/products/:id", ProductController, :show
+    # get "/products/:id", ProductController, :show
+    # Added resources macro for products only is for assign that you want, and except is for what you don't want
+    resources "/products", ProductController, only: [:index, :show]
+
+    # Nested resources example for users and their posts and you can add opts as well
+    # resources "/users", UserController, only: [:index, :show] do
+    #  resources "/posts", PostController
+    # end
+  end
+
+  # Add a diferent scope
+  scope "/dashboard", ShopWeb do
+    pipe_through [:browser, :auth]
+
+    get "/", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
