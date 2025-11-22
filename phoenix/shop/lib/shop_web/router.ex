@@ -16,9 +16,9 @@ defmodule ShopWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :auth do
-    plug Plugs.EnsureAuthenticated
-  end
+  # pipeline :auth do
+  #  plug Plugs.EnsureAuthenticated
+  # end
 
   scope "/", ShopWeb do
     pipe_through :browser
@@ -37,11 +37,11 @@ defmodule ShopWeb.Router do
   end
 
   # Add a diferent scope
-  scope "/dashboard", ShopWeb do
-    pipe_through [:browser, :auth]
-
-    get "/", DashboardController, :index
-  end
+  # scope "/dashboard", ShopWeb do
+  #  pipe_through [:browser, :auth]
+  #
+  #  get "/", DashboardController, :index
+  # end
 
   # Other scopes may use custom stacks.
   # scope "/api", ShopWeb do
