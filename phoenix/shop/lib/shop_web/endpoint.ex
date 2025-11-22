@@ -56,11 +56,11 @@ defmodule ShopWeb.Endpoint do
   plug :check_promo_code, "Hello there!"
   plug ShopWeb.Router
 
-
   # This is a plug function that checks for a promo code in the params
   # If the promo code matches "secret-code", it assigns :promo to true in the conn
   # Otherwise, it assigns :promo to false
-  def check_promo_code(%Plug.Conn{:params => %{"promo" => promo_code}} = conn, opts) when promo_code == "secret-code" do
+  def check_promo_code(%Plug.Conn{:params => %{"promo" => promo_code}} = conn, opts)
+      when promo_code == "secret-code" do
     # Only for debugging purposes
     IO.inspect(opts)
     # Assign :promo to true in the conn on phoenix 1.8 you need to use Plug.Conn.assign/3

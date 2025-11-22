@@ -19,6 +19,7 @@ defmodule ShopWeb.ProductController do
 
   def show(conn, %{"id" => id}) do
     product = Enum.find(@products, fn p -> p.id == String.to_integer(id) end)
+
     conn
     |> assign(:product, product)
     |> render(:show)

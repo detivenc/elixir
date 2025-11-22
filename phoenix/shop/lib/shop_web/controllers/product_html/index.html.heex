@@ -1,14 +1,14 @@
 <Layouts.app flash={@flash} current_scope={assigns[:current_scope]}>
-   <p :if={@promo}>Promo active!</p>
+  <p :if={@promo}>Promo active!</p>
   <!-- <h1>This is the product listing page!</h1>
-   
-   
-   REMEMBER TO USE the ~p sigil for path generation because it is verified at compile time 
+
+
+   REMEMBER TO USE the ~p sigil for path generation because it is verified at compile time
    <a href={~p"/?#{[console: "xbox", promo: "secret-code"]}"} class="text-blue-500 underline">Back to Home</a>
-   
+
    <p> this is the full URL: <%= url(~p"/products") %></p> -->
 
    <!-- List products -->
-   <h1>Product Listing</h1>
-   <.index_no_layout :for={product <- @products} name={product.name} />
+  <h1>Product Listing</h1>
+  <.index_no_layout :for={product <- @products} name={product.name} id={product.id} />
 </Layouts.app>
