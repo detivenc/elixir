@@ -28,7 +28,8 @@ defmodule ShopWeb.Router do
     get "/products/no-layout", ProductController, :index_no_layout
     # get "/products/:id", ProductController, :show
     # Added resources macro for products only is for assign that you want, and except is for what you don't want
-    resources "/products", ProductController, only: [:index, :show]
+    resources "/products", ProductController, only: [:index]
+    get "/products/:slug", ProductController, :show
 
     # Nested resources example for users and their posts and you can add opts as well
     # resources "/users", UserController, only: [:index, :show] do

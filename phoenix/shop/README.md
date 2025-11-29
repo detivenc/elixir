@@ -16,3 +16,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 * Docs: https://hexdocs.pm/phoenix
 * Forum: https://elixirforum.com/c/phoenix-forum
 * Source: https://github.com/phoenixframework/phoenix
+
+### Special Files
+.iex.exs file uses for put values like alias when executing the phoenix app in iex

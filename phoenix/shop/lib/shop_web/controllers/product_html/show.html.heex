@@ -1,5 +1,6 @@
 <Layouts.app flash={@flash} current_scope={assigns[:current_scope]}>
-  <.index_no_layout :if={@product} name={@product.name} /> <.button>Click me!</.button>
   <!--<.button navigate={~p"/"}>Home</.button>-->
+  <p>ID: {@product.id}</p>
+  <p>Name: {@product.name}</p>
   <.back navigate={~p"/products"}>Back to product listing</.back>
 </Layouts.app>

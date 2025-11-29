@@ -10,5 +10,5 @@
 
    <!-- List products -->
   <h1>Product Listing</h1>
-  <.index_no_layout :for={product <- @products} name={product.name} id={product.id} />
+  <.index_no_layout :for={product <- @products} product={product} />
 </Layouts.app>
