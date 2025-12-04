@@ -1,0 +1,20 @@
+<Layouts.app flash={@flash}>
+  <.header>
+    Promotion {@promotion.id}
+    <:subtitle>This is a promotion record from your database.</:subtitle>
+    <:actions>
+      <.button navigate={~p"/promotions"}>
+        <.icon name="hero-arrow-left" />
+      </.button>
+      <.button variant="primary" navigate={~p"/promotions/#{@promotion}/edit?return_to=show"}>
+        <.icon name="hero-pencil-square" /> Edit promotion
+      </.button>
+    </:actions>
+  </.header>
+
+  <.list>
+    <:item title="Name">{@promotion.name}</:item>
+    <:item title="Code">{@promotion.code}</:item>
+    <:item title="Expires at">{@promotion.expires_at}</:item>
+  </.list>
+</Layouts.app>

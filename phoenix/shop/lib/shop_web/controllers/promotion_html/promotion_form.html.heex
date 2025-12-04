@@ -1,0 +1,9 @@
+<.form :let={f} for={@changeset} action={@action}>
+  <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:code]} type="text" label="Code" />
+  <.input field={f[:expires_at]} type="datetime-local" label="Expires at" />
+  <footer>
+    <.button variant="primary">Save Promotion</.button>
+    <.button :if={@return_to} href={@return_to}>Cancel</.button>
+  </footer>
+</.form>

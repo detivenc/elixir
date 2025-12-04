@@ -35,6 +35,8 @@ defmodule ShopWeb.Router do
     # resources "/users", UserController, only: [:index, :show] do
     #  resources "/posts", PostController
     # end
+    # Created with mix tasks
+    resources "/promotions", PromotionController
   end
 
   # Add a diferent scope

@@ -1,0 +1,8 @@
+<Layouts.app flash={@flash}>
+  <.header>
+    Edit Promotion {@promotion.id}
+    <:subtitle>Use this form to manage promotion records in your database.</:subtitle>
+  </.header>
+
+  <.promotion_form changeset={@changeset} action={~p"/promotions/#{@promotion}"} return_to={~p"/promotions"} />
+</Layouts.app>
