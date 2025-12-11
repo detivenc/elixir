@@ -26,7 +26,10 @@
       "*": ["../deps/*"]
     },
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "lib": ["ES2019", "DOM"]
   },
   "include": ["js/**/*"]
 }

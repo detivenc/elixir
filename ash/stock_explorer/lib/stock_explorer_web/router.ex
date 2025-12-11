@@ -18,6 +18,15 @@ defmodule StockExplorerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    live "/companies-liveview", CompaniesLive
+    get "/react/*path", PageController, :react
+  end
+
+  scope "/rpc", StockExplorerWeb do
+    pipe_through :api
+
+    post "/run", RpcController, :run
+    post "/validate", RpcController, :validate
   end
 
   # Other scopes may use custom stacks.

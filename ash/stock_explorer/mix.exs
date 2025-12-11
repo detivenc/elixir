@@ -41,6 +41,7 @@ defmodule StockExplorer.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ash_typescript, "~> 0.11"},
       {:sourceror, "~> 1.8", only: [:dev, :test]},
       {:ash_sqlite, "~> 0.2"},
       {:ash, "~> 3.0"},
