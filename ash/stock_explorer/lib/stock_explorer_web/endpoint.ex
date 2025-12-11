@@ -7,7 +7,7 @@ defmodule StockExplorerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_stock_explorer_key",
-    signing_salt: "vsIHhT88",
+    signing_salt: "z5SN9cuV",
     same_site: "Lax"
   ]
 

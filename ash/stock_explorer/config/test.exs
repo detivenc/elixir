@@ -17,7 +17,7 @@ config :stock_explorer, StockExplorer.Repo,
 # you can enable the server option below.
 config :stock_explorer, StockExplorerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "YIMEvi5nCVtyowwpSQhfJLCwF0HKwpALDpQLAF8yciUu72SU82ImnD65ME6EV4Np",
+  secret_key_base: "GGDfwg4KgCBiRxmDXVoVVVVc8zf69X327F9+gDAYs5QxLFOv8YxbqgOecoGXKiU3",
   server: false
 
 # In test we don't send emails

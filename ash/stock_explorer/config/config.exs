@@ -20,7 +20,7 @@ config :stock_explorer, StockExplorerWeb.Endpoint,
     layout: false
   ],
   pubsub_server: StockExplorer.PubSub,
-  live_view: [signing_salt: "ei63oBvr"]
+  live_view: [signing_salt: "KVMjQYhi"]
 
 # Configure the mailer
 #

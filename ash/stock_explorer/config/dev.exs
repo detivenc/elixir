@@ -23,7 +23,7 @@ config :stock_explorer, StockExplorerWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "Qz+F0EUGQA9yfhJIj8QG6OofAsZF7p7DoH6nIAl1Bej4zxdiCo4tQSpS5nygMElj",
+  secret_key_base: "QHU4H3ctpBJU8Zq8Zog4luUc/tToxc7JdXIT15TxufO2gnfKvS6simDT5xDtBxwD",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:stock_explorer, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:stock_explorer, ~w(--watch)]}
